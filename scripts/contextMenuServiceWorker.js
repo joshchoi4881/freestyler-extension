@@ -1,7 +1,7 @@
-const generateCompletion = async (info) => {
+const generateCompletion = async (input) => {
   try {
     sendMessage("generating...");
-    const { selectionText } = info;
+    const { selectionText } = input;
     const firstPromptPrefix = `
     List 25 words that are associated with a person's lexicon.
 
@@ -53,7 +53,7 @@ const generate = async (input) => {
     },
     body: JSON.stringify({
       model: "text-davinci-003",
-      prompt,
+      prompt: input,
       temperature: 0.7,
       max_tokens: 1250,
     }),
