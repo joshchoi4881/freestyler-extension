@@ -10,7 +10,7 @@ const generateCompletion = async (input) => {
     const firstPromptCompletion = await generate(
       `${firstPromptPrefix}${selectionText}`
     );
-    const secondPromptPrefix = `
+    const secondPrompt = `
     Write a rap in the style of a person. Incorporate some of the words listed below. The rap must rhyme and have clever wordplay and punchlines. Make sure to include personal details about the person.
 
     Person: ${selectionText}
@@ -19,7 +19,7 @@ const generateCompletion = async (input) => {
   
     Rap:
       `;
-    const secondPromptCompletion = await generate(secondPromptPrefix);
+    const secondPromptCompletion = await generate(secondPrompt);
     sendMessage(secondPromptCompletion.text);
   } catch (error) {
     console.log(error);
